@@ -174,14 +174,6 @@ def write_text(event, x, y, flags, param):
             cv2.imshow("image", draw_state.img)
             print(f"Text '{text}' added at position ({x}, {y})")
 
-
-def safe_temp_file_cleanup(file_path):
-    try:
-        if os.path.exists(file_path):
-            os.unlink(file_path)
-    except Exception as e:
-        st.warning(f"Could not clean up temporary file: {e}")
-
 def create_temp_file_from_upload(uploaded_file):
     try:
         with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as tmp_file:
